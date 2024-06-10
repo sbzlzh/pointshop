@@ -59,8 +59,7 @@ end
 
 function PS:LoadItems()	
 	local _, dirs = file.Find('pointshop/items/*', 'LUA')
-	local emptyfunc = function() end
-
+	
 	for _, category in pairs(dirs) do
 		local f, _ = file.Find('pointshop/items/' .. category .. '/__category.lua', 'LUA')
 		
@@ -73,7 +72,7 @@ function PS:LoadItems()
 			CATEGORY.AllowedEquipped = -1
 			CATEGORY.AllowedUserGroups = {}
 			CATEGORY.CanPlayerSee = function() return true end
-			CATEGORY.ModifyTab = emptyfunc
+			CATEGORY.ModifyTab = function(tab) return end
 			
 			if SERVER then AddCSLuaFile('pointshop/items/' .. category .. '/__category.lua') end
 			include('pointshop/items/' .. category .. '/__category.lua')
@@ -108,11 +107,11 @@ function PS:LoadItems()
 					ITEM.CanPlayerEquip = true
 					ITEM.CanPlayerHolster = true
 
-					ITEM.OnBuy = emptyfunc
-					ITEM.OnSell = emptyfunc
-					ITEM.OnEquip = emptyfunc
-					ITEM.OnHolster = emptyfunc
-					ITEM.OnModify = emptyfunc
+					ITEM.OnBuy = function() end
+					ITEM.OnSell = function() end
+					ITEM.OnEquip = function() end
+					ITEM.OnHolster = function() end
+					ITEM.OnModify = function() end
 					ITEM.ModifyClientsideModel = function(ITEM, ply, model, pos, ang)
 						return model, pos, ang
 					end

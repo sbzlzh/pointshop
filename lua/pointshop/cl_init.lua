@@ -6,11 +6,11 @@
 include "sh_init.lua"
 include "cl_player_extension.lua"
 
-include "vgui/DPointShopMenu.lua"
-include "vgui/DPointShopItem.lua"
-include "vgui/DPointShopPreview.lua"
-include "vgui/DPointShopColorChooser.lua"
-include "vgui/DPointShopGivePoints.lua"
+include "vgui/dpointshopmenu.lua"
+include "vgui/dpointshopitem.lua"
+include "vgui/dpointshoppreview.lua"
+include "vgui/dpointshopcolorchooser.lua"
+include "vgui/dpointshopgivepoints.lua"
 
 PS.ShopMenu = nil
 PS.ClientsideModels = {}
